@@ -12,7 +12,7 @@ cup = False
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
-    frame = cv2.rectangle(frame, (0,0), (frame.shape[1], frame.shape[0]),  (0, 0, 255), 5)
+    frame = cv2.rectangle(frame, (0,0), (frame.shape[1], frame.shape[0]),  (0, 0, 255), 10)
     # Our operations on the frame come here
     #frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
     gray = model(frame.copy())
@@ -41,7 +41,7 @@ while(True):
             if distance.euclidean((face_x, face_y), (cup_x, cup_y)) <= abs(cup_min[1] - cup_max[1]):
                 frame = cv2.rectangle(frame, (0,0), (frame.shape[1], frame.shape[0]),  (0, 255, 0), 5)
         else:
-            frame = cv2.rectangle(frame, (0,0), (frame.shape[1], frame.shape[0]),  (0, 0, 255), 5)
+            frame = cv2.rectangle(frame, (0,0), (frame.shape[1], frame.shape[0]),  (0, 0, 255), 10)
             # Display the resulting frame
     cv2.imshow('frame', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
